@@ -21,11 +21,18 @@ inventory = [
     { "Product": "Dishwasher", "SKU": "DW918273" }
 ]
 
+
+inventory.count = len(inventory)
+
+
 @app.get("/products")
 def get_products():
-    return JSONResponse(content=inventory)
+    """Retrieve the list of products in the inventory."""
+    return JSONResponse(content=inventory, count=inventory.count, status_code=200)
 
 @app.post("/product")
 def add_product(product: dict):
-    inventory.append(product)
+    """Add a new product to the inventory."""
+    'Test'
+    inventory.append(product)   
     return JSONResponse(content={"message": "Product added successfully", "product": product}, status_code=201)
