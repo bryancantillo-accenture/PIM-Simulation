@@ -22,6 +22,11 @@ inventory = [
 ]
 
 
+@app.get("/")
+def read_root():
+    """Root endpoint to check if the API is running."""
+    return JSONResponse(content={"message": "Welcome to the PIM Simulation API"}, status_code=200)
+
 @app.get("/products")
 def get_products():
     """Retrieve the list of products in the inventory."""
