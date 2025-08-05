@@ -30,6 +30,8 @@ def read_root():
 @app.get("/products")
 def get_products():
     """Retrieve the list of products in the inventory."""
+    count = len(inventory)
+    inventory.count = count
     return JSONResponse(content=inventory, count=inventory.count, status_code=200)
 
 @app.post("/product")
