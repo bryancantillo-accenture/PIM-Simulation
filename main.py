@@ -24,3 +24,8 @@ inventory = [
 @app.get("/products")
 def get_products():
     return JSONResponse(content=inventory)
+
+@app.post("/product")
+def add_product(product: dict):
+    inventory.append(product)
+    return JSONResponse(content={"message": "Product added successfully", "product": product}, status_code=201)
