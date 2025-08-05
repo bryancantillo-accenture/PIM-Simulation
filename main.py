@@ -30,9 +30,12 @@ def read_root():
 @app.get("/products")
 def get_products():
     """Retrieve the list of products in the inventory."""
-    count = len(inventory)
-    inventory.count = count
-    return JSONResponse(content=inventory, count=inventory.count, status_code=200)
+    contentResult = {
+        "message": "List of products in the inventory",
+        "count": len(inventory),
+        "products": inventory
+    }
+    return JSONResponse(content=contentResult, status_code=200)
 
 @app.post("/product")
 def add_product(product: dict):
