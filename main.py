@@ -22,9 +22,6 @@ inventory = [
 ]
 
 
-inventory.count = len(inventory)
-
-
 @app.get("/products")
 def get_products():
     """Retrieve the list of products in the inventory."""
